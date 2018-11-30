@@ -849,7 +849,7 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
             public void run() {
 
                 if (mShouldAnimate) {
-                    animateIn();
+                    fadeIn();
                 } else {
                     setVisibility(VISIBLE);
                     notifyOnDisplayed();
@@ -871,7 +871,7 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
         mWasDismissed = true;
 
         if (mShouldAnimate) {
-            animateOut();
+            fadeOut();
         } else {
             removeFromWindow();
         }
@@ -905,7 +905,7 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
         );
     }
 
-    public void animateOut() {
+    public void fadeOut() {
 
         mAnimationFactory.animateOutView(this, mTarget.getPoint(), mFadeDurationInMillis, new IAnimationFactory.AnimationEndListener() {
             @Override

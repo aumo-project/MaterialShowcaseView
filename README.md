@@ -1,3 +1,11 @@
+# 外部ライブラリをフォークしてきているので不具合があった場合の修正手順手順
+・ PRを出してマージする
+・ AARを作ってAUMO_ANDROIDに入れる
+・ AUMO_ANDROIDにマージする
+
+
+
+
 *Looking for collaborators to help maintain this library, drop me a line at me@deanwild.co.uk if you want to help.*
 
 # MaterialShowcaseView

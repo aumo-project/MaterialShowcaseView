@@ -894,26 +894,31 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
 
     public void fadeIn() {
         setVisibility(INVISIBLE);
-        mAnimationFactory.animateInView(this, mTarget.getPoint(), mFadeDurationInMillis,
-                new IAnimationFactory.AnimationStartListener() {
-                    @Override
-                    public void onAnimationStart() {
-                        setVisibility(View.VISIBLE);
-                        notifyOnDisplayed();
+
+        if (mAnimationFactory != null) {
+            mAnimationFactory.animateInView(this, mTarget.getPoint(), mFadeDurationInMillis,
+                    new IAnimationFactory.AnimationStartListener() {
+                        @Override
+                        public void onAnimationStart() {
+                            setVisibility(View.VISIBLE);
+                            notifyOnDisplayed();
+                        }
                     }
-                }
-        );
+            );
+        }
     }
 
     public void fadeOut() {
 
-        mAnimationFactory.animateOutView(this, mTarget.getPoint(), mFadeDurationInMillis, new IAnimationFactory.AnimationEndListener() {
-            @Override
-            public void onAnimationEnd() {
-                setVisibility(INVISIBLE);
-                removeFromWindow();
-            }
-        });
+        if (mAnimationFactory != null) {
+            mAnimationFactory.animateOutView(this, mTarget.getPoint(), mFadeDurationInMillis, new IAnimationFactory.AnimationEndListener() {
+                @Override
+                public void onAnimationEnd() {
+                    setVisibility(INVISIBLE);
+                    removeFromWindow();
+                }
+            });
+        }
     }
 
     public void resetSingleUse() {
